@@ -1,0 +1,29 @@
+plugins:
+  - artifactId: "aws-credentials"
+    source:
+      version: "254.v978a_5e206a_d7"
+  - artifactId: "pipeline-github"
+    source:
+      version: "2.8-162.382498405fdc"
+  - artifactId: "snyk-security-scanner"
+    source:
+      version: "5.0.1"
+  - artifactId: "ansicolor"
+  - artifactId: "terraform"
+    source:
+      version: "1.0.10"
+  - artifactId: "pipeline-aws"
+    source:
+      version: "1.45"
+  - artifactId: "pipeline-gcp"
+    source:
+      version: "22.vcc10eff7c13f"
+  - artifactId: "google-oauth-plugin"
+    source:
+      version: "1.346.v712b_a_e0d1e60"
+  - artifactId: "github-pullrequest"
+    source:
+      version: "0.7.3"
+  - artifactId: "github-oauth"
+    source:
+      version: "685.v53b_070455063"

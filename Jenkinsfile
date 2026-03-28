@@ -12,10 +12,15 @@ pipeline {
                 checkout scm
             }
         }
-
+ 
         stage('Terraform Init') {
             steps {
-                sh 'terraform init'
+                withCredentials([[
+                    $class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: 'jenkinsProd'
+                ]]) {
+                    sh 'terraform init'
+                }
             }
         }
 

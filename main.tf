@@ -85,26 +85,26 @@ resource "aws_subnet" "echobase_private_subnets" {
 # NAT Gateway + EIP
 ############################################
 
-# Explanation: Echobase wants the private base to call home—EIP gives the NAT a stable “holonet address.”
-resource "aws_eip" "echobase_nat_eip01" {
-  domain = "vpc"
+# # Explanation: Echobase wants the private base to call home—EIP gives the NAT a stable “holonet address.”
+# resource "aws_eip" "echobase_nat_eip01" {
+#   domain = "vpc"
 
-  tags = {
-    Name = "${local.name_prefix}-nat-eip01"
-  }
-}
+#   tags = {
+#     Name = "${local.name_prefix}-nat-eip01"
+#   }
+# }
 
-# Explanation: NAT is Echobase’s smuggler tunnel—private subnets can reach out without being seen.
-resource "aws_nat_gateway" "echobase_nat01" {
-  allocation_id = aws_eip.echobase_nat_eip01.id
-  subnet_id     = aws_subnet.echobase_public_subnets[0].id # NAT in a public subnet
+# # Explanation: NAT is Echobase’s smuggler tunnel—private subnets can reach out without being seen.
+# resource "aws_nat_gateway" "echobase_nat01" {
+#   allocation_id = aws_eip.echobase_nat_eip01.id
+#   subnet_id     = aws_subnet.echobase_public_subnets[0].id # NAT in a public subnet
 
-  tags = {
-    Name = "${local.name_prefix}-nat01"
-  }
+#   tags = {
+#     Name = "${local.name_prefix}-nat01"
+#   }
 
-  depends_on = [aws_internet_gateway.echobase_igw01]
-}
+#   depends_on = [aws_internet_gateway.echobase_igw01]
+# }
 
 ############################################
 # Routing (Public + Private Route Tables)
@@ -143,11 +143,11 @@ resource "aws_route_table" "echobase_private_rt01" {
 }
 
 # Explanation: Private subnets route outbound internet via NAT (Echobase-approved stealth).
-resource "aws_route" "echobase_private_default_route" {
-  route_table_id         = aws_route_table.echobase_private_rt01.id
-  destination_cidr_block = "0.0.0.0/0"
-  nat_gateway_id         = aws_nat_gateway.echobase_nat01.id
-}
+# resource "aws_route" "echobase_private_default_route" {
+#   route_table_id         = aws_route_table.echobase_private_rt01.id
+#   destination_cidr_block = "0.0.0.0/0"
+#   nat_gateway_id         = aws_nat_gateway.echobase_nat01.id
+# }
 
 # Explanation: Attach private subnets to the “stealth lanes.”
 resource "aws_route_table_association" "echobase_private_rta" {

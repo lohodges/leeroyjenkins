@@ -24,8 +24,8 @@ EOF
 curl -fLs -o /tmp/jenkins-plugin-manager.jar \
   https://github.com/jenkinsci/plugin-installation-manager-tool/releases/download/2.14.0/jenkins-plugin-manager-2.14.0.jar
 
-curl -fLs -o /tmp/plugins.yaml \
-  https://raw.githubusercontent.com/aaron-dm-mcdonald/new-jenkins-s3-test/refs/heads/main/plugins.yaml
+# curl -fLs -o /tmp/plugins.yaml \
+#   https://raw.githubusercontent.com/aaron-dm-mcdonald/new-jenkins-s3-test/refs/heads/main/plugins.yaml
 
 sudo -u jenkins java -jar /tmp/jenkins-plugin-manager.jar \
   --war /usr/share/java/jenkins.war \

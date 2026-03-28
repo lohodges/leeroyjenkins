@@ -1,29 +1,269 @@
 plugins:
-  - artifactId: "aws-credentials"
+  - artifactId: "active-directory"
     source:
-      version: "254.v978a_5e206a_d7"
-  - artifactId: "pipeline-github"
+      version: "2.41"
+  - artifactId: "ant"
     source:
-      version: "2.8-162.382498405fdc"
-  - artifactId: "snyk-security-scanner"
-    source:
-      version: "5.0.1"
+      version: "520.vd082ecfb_16a_9"
   - artifactId: "ansicolor"
-  - artifactId: "terraform"
+  - artifactId: "aws-lambda-cloud"
     source:
-      version: "1.0.10"
+      version: "0.4"
+  - artifactId: "azure-ad"
+    source:
+      version: "631.vb_2d4d8cc86b_0"
+  - artifactId: "azure-artifact-manager"
+    source:
+      version: "216.ve6d6d465e371"
+  - artifactId: "azure-container-agents"
+    source:
+      version: "372.v073266fff4a_7"
+  - artifactId: "azure-cosmosdb"
+    source:
+      version: "2.v738e7ec0eeea_"
+  - artifactId: "azure-credentials-ext"
+    source:
+      version: "1.0"
+  - artifactId: "azure-keyvault"
+    source:
+      version: "359.v675a_5ee82d51"
+  - artifactId: "azure-kubernetes-credentials"
+    source:
+      version: "35.v0cefe6111a_b_4"
+  - artifactId: "azure-vm-agents"
+    source:
+      version: "1093.va_9cd2dd11158"
+  - artifactId: "bitbucket"
+    source:
+      version: "282.v85a_7e442f57b_"
+  - artifactId: "build-name-setter"
+    source:
+      version: "2.5.1"
+  - artifactId: "build-timeout"
+    source:
+      version: "1.40"
+  - artifactId: "dark-theme"
+    source:
+      version: "574.va_19f05d54df5"
+  - artifactId: "dashboard-view"
+    source:
+      version: "2.558.v96b_901978e47"
+  - artifactId: "docker-plugin"
+    source:
+      version: "1316.v75635a_002b_0a_"
+  - artifactId: "ec2"
+    source:
+      version: "2045.v06da_da_a_46422"
+  - artifactId: "gcp-java-sdk-auth"
+    source:
+      version: "26.23.0-31.va_efec42c4f8c"
+  - artifactId: "gcp-java-sdk-storage"
+    source:
+      version: "26.23.0-31.va_efec42c4f8c"
+  - artifactId: "gcp-secrets-manager-credentials-provider"
+    source:
+      version: "0.3.1"
+  - artifactId: "git-forensics"
+    source:
+      version: "3.2274.v3dc0fd546572"
+  - artifactId: "git-parameter"
+    source:
+      version: "462.vdcf3df2ed2ca_"
+  - artifactId: "git-push"
+    source:
+      version: "34.vd474e0fe7b_ec"
+  - artifactId: "git-server"
+    source:
+      version: "137.ve0060b_432302"
+  - artifactId: "git-tag-message"
+    source:
+      version: "1.7.1"
+  - artifactId: "github-checks"
+    source:
+      version: "676.v48c732b_52951"
+  - artifactId: "github-oauth"
+    source:
+      version: "685.v53b_070455063"
+  - artifactId: "github-pr-comment-build"
+    source:
+      version: "134.ve7ff0b_719821"
+  - artifactId: "github-pullrequest"
+    source:
+      version: "0.7.3"
+  - artifactId: "gitlab-kubernetes-credentials"
+    source:
+      version: "538.v99cc6503c421"
+  - artifactId: "gitlab-logo"
+    source:
+      version: "232.v34a_9b_98d4eb_b_"
+  - artifactId: "gitlab-merge-request-jenkins"
+    source:
+      version: "2.0.0"
+  - artifactId: "gitlab-oauth"
+    source:
+      version: "1.28"
+  - artifactId: "gitlab-plugin"
+    source:
+      version: "1.9.13"
+  - artifactId: "google-compute-engine"
+    source:
+      version: "4.683.v0ce26579a_ee7"
+  - artifactId: "google-kubernetes-engine"
+    source:
+      version: "0.446.v6a_dd8b_0f678b_"
+  - artifactId: "google-login"
+    source:
+      version: "109.v022b_cf87b_e5b_"
+  - artifactId: "google-storage-plugin"
+    source:
+      version: "1.372.vdb_857a_f19629"
+  - artifactId: "gradle"
+    source:
+      version: "2.18.1203.v2c96b_1243c72"
+  - artifactId: "jdk-tool"
+    source:
+      version: "83.v417146707a_3d"
+  - artifactId: "kubernetes"
+    source:
+      version: "4423.vb_59f230b_ce53"
+  - artifactId: "ldap"
+    source:
+      version: "807.v7d7de30930cf"
+  - artifactId: "localization-support"
+    source:
+      version: "1.41.v186a_c1569458"
+  - artifactId: "msbuild"
+    source:
+      version: "1.39"
+  - artifactId: "oidc-provider"
+    source:
+      version: "170.v15f73e25a_e28"
+  - artifactId: "openmfa"
+    source:
+      version: "104.v3a_b_a_61fd743e"
+  - artifactId: "oracle-cloud-infrastructure-compute"
+    source:
+      version: "1.0.19"
+  - artifactId: "oracle-cloud-infrastructure-devops"
+    source:
+      version: "1.0.1"
   - artifactId: "pipeline-aws"
     source:
       version: "1.45"
   - artifactId: "pipeline-gcp"
     source:
       version: "22.vcc10eff7c13f"
+  - artifactId: "pipeline-github"
+    source:
+      version: "2.8-162.382498405fdc"
+  - artifactId: "pipeline-github-lib"
+    source:
+      version: "65.v203688e7727e"
+  - artifactId: "pipeline-githubnotify-step"
+    source:
+      version: "49.vf37bf92d2bc8"
+  - artifactId: "pipeline-graph-analysis"
+    source:
+      version: "254.v0f63a_a_447dca_"
+  - artifactId: "pipeline-graph-view"
+    source:
+      version: "803.vb_88f7a_a_1cb_47"
+  - artifactId: "snyk-security-scanner"
+    source:
+      version: "5.0.1"
+  - artifactId: "terraform"
+    source:
+      version: "1.0.10"
+  - artifactId: "timestamper"
+    source:
+      version: "1.30"
+  - artifactId: "violation-comments-to-gitlab"
+    source:
+      version: "2.62.0"
+  - artifactId: "workflow-aggregator"
+    source:
+      version: "608.v67378e9d3db_1"
+  - artifactId: "ws-cleanup"
+    source:
+      version: "0.49"
+  - artifactId: "aws-credentials"
+    source:
+      version: "254.v978a_5e206a_d7"
+  - artifactId: "aws-codebuild"
+    source:
+      version: "0.59"
+  - artifactId: "aws-codepipeline"
+    source:
+      version: "0.49"
+  - artifactId: "aws-lambda"
+    source:
+      version: "0.5.10"
+  - artifactId: "aws-sam"
+    source:
+      version: "1.2.13"
+  - artifactId: "aws-secrets-manager-secret-source"
+    source:
+      version: "2.87.v49cc86c50c3b_"
+  - artifactId: "cloudbees-bitbucket-branch-source"
+    source:
+      version: "937.2.6"
+  - artifactId: "codedeploy"
+    source:
+      version: "1.23"
+  - artifactId: "configuration-as-code"
+    source:
+      version: "2056.v6a_e126e16620"
+  - artifactId: "configuration-as-code-secret-ssm"
+    source:
+      version: "1.0.1"
+  - artifactId: "copyartifact"
+    source:
+      version: "795.ve8e151429b_27"
+  - artifactId: "email-ext"
+    source:
+      version: "1933.v45cec755423f"
+  - artifactId: "git"
+    source:
+      version: "5.10.1"
+  - artifactId: "github"
+    source:
+      version: "1.46.0"
+  - artifactId: "github-branch-source"
+    source:
+      version: "1967.vdea_d580c1a_b_a_"
+  - artifactId: "gitlab-branch-source"
+    source:
+      version: "740.v04f287f9194d"
   - artifactId: "google-oauth-plugin"
     source:
       version: "1.346.v712b_a_e0d1e60"
-  - artifactId: "github-pullrequest"
+  - artifactId: "jenkins-cloudformation-plugin"
     source:
-      version: "0.7.3"
-  - artifactId: "github-oauth"
+      version: "231.v3b_84a_7a_074ec"
+  - artifactId: "junit"
     source:
-      version: "685.v53b_070455063"
+      version: "1403.vd9d1413fd205"
+  - artifactId: "maven-plugin"
+    source:
+      version: "3.27"
+  - artifactId: "mercurial"
+    source:
+      version: "1323.ve69d2a_db_8a_b_d"
+  - artifactId: "parameterized-trigger"
+    source:
+      version: "890.vc240a_a_e1217f"
+  - artifactId: "pipeline-maven"
+    source:
+      version: "1672.v1b_d4c0435b_20"
+  - artifactId: "publish-over-ssh"
+    source:
+      version: "390.vb_f56e7405751"
+  - artifactId: "ssh-slaves"
+    source:
+      version: "3.1097.v868116049892"
+  - artifactId: "windows-azure-storage"
+    source:
+      version: "535.v20d12167fa_70"
+  - artifactId: "config-file-provider"
+    source:
+      version: "1006.vc7366c201f57"

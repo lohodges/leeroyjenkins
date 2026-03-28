@@ -58,3 +58,6 @@ _archived/
 
 # added by Lonnie Hodges to not share the private and public ssh keys
 *id_aws_ec2_ed25519*
+/id_ed25519_aws_ec2
+/id_ed25519_aws_ec2.pub
+/notes.md

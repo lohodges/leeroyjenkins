@@ -54,7 +54,7 @@ variable "ec2_instance_type" {
   description = "EC2 instance size for the app."
   type        = string
   #default     = "t2.micro" # free tier eligible (ap-northeast-1)
-  default = "t3.xlarge" # free tier eligible (ap-northeast-1) for Jenkins
+  default = "t3.large" # (ap-northeast-1) for Jenkins
 }
 
 variable "db_engine" {

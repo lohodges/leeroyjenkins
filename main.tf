@@ -160,7 +160,7 @@ resource "aws_route_table_association" "echobase_private_rta" {
 # Security Groups (EC2 + RDS)
 ############################################
 
-# Explanation: EC2 SG is Echobase’s bodyguard—only let in what you mean to.
+# # Explanation: EC2 SG is Echobase’s bodyguard—only let in what you mean to.
 resource "aws_security_group" "echobase_ec2_sg01" {
   name        = "${local.name_prefix}-ec2-sg01"
   description = "EC2 app security group"
@@ -171,8 +171,8 @@ resource "aws_security_group" "echobase_ec2_sg01" {
   }
 }
 
-# TODO: student adds inbound rules (HTTP 80, SSH 22 from their IP)
-# added by Lonnie Hodges
+# # TODO: student adds inbound rules (HTTP 80, SSH 22 from their IP)
+# # added by Lonnie Hodges
 resource "aws_vpc_security_group_ingress_rule" "http" {
   security_group_id = aws_security_group.echobase_ec2_sg01.id
   cidr_ipv4         = "0.0.0.0/0"
@@ -189,14 +189,15 @@ resource "aws_vpc_security_group_ingress_rule" "ssh" {
   to_port           = 22
 }
 
-# added by Lonnie Hodges
-# Jenkins 8080
+# # added by Lonnie Hodges
+# # Jenkins 8080
 resource "aws_vpc_security_group_ingress_rule" "jenkins" {
   security_group_id = aws_security_group.echobase_ec2_sg01.id
-  cidr_ipv4         = "0.0.0.0/0"
-  ip_protocol       = "tcp"
-  from_port         = 8080
-  to_port           = 8080
+  #cidr_ipv4         = "0.0.0.0/0"
+  cidr_ipv4   = "65.32.131.115/32"
+  ip_protocol = "tcp"
+  from_port   = 8080
+  to_port     = 8080
 }
 
 resource "aws_vpc_security_group_egress_rule" "out_ec2_all" {
@@ -211,10 +212,25 @@ resource "aws_vpc_security_group_egress_rule" "out_ec2_all" {
 
 # Explanation: This is your “Han Solo box”—it talks to RDS and complains loudly when the DB is down.
 resource "aws_instance" "echobase_ec201" {
-  ami                    = var.ec2_ami_id
-  instance_type          = var.ec2_instance_type
-  subnet_id              = aws_subnet.echobase_private_subnets[0].id
-  vpc_security_group_ids = [aws_security_group.echobase_ec2_sg01.id]
+  ami                         = var.ec2_ami_id
+  instance_type               = var.ec2_instance_type
+  subnet_id                   = aws_subnet.echobase_public_subnets[0].id
+  vpc_security_group_ids      = [aws_security_group.echobase_ec2_sg01.id]
+  associate_public_ip_address = true
+  key_name                    = aws_key_pair.linux.key_name
+
+  provisioner "file" {
+    source      = "${path.module}/plugins.yaml"
+    destination = "/tmp/plugins.yaml"
+
+    connection {
+      type        = "ssh"
+      user        = "ec2-user"
+      private_key = file("${path.module}/id_ed25519_aws_ec2")
+      host        = self.public_ip
+    }
+
+  }
 
   # TODO: student supplies user_data to install app + CW agent + configure log shipping
   # added by Lonnie Hodges
@@ -228,3 +244,16 @@ resource "aws_instance" "echobase_ec201" {
     Name = "${local.name_prefix}-ec201"
   }
 }
+
+#--------------------------------------------------------------------
+# Compute - Key Pairs
+#
+# Windows:  https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement
+# Linux/Mac: https://www.ssh.com/academy/ssh/keygen
+# Linux/Mac: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+#--------------------------------------------------------------------
+resource "aws_key_pair" "linux" {
+  public_key      = file("${path.module}/id_ed25519_aws_ec2.pub")
+  key_name_prefix = "${local.name_prefix}-kp201"
+}
+

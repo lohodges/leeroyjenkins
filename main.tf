@@ -193,8 +193,8 @@ resource "aws_vpc_security_group_ingress_rule" "ssh" {
 # # Jenkins 8080
 resource "aws_vpc_security_group_ingress_rule" "jenkins" {
   security_group_id = aws_security_group.echobase_ec2_sg01.id
-  #cidr_ipv4         = "0.0.0.0/0"
-  cidr_ipv4   = "65.32.131.115/32"
+  cidr_ipv4         = "0.0.0.0/0"
+  #cidr_ipv4   = "65.32.131.115/32"
   ip_protocol = "tcp"
   from_port   = 8080
   to_port     = 8080

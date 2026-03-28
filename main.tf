@@ -219,18 +219,18 @@ resource "aws_instance" "echobase_ec201" {
   associate_public_ip_address = true
   key_name                    = aws_key_pair.linux.key_name
 
-  provisioner "file" {
-    source      = "${path.module}/plugins.yaml"
-    destination = "/tmp/plugins.yaml"
+  # provisioner "file" {
+  #   source      = "${path.module}/plugins.yaml"
+  #   destination = "/tmp/plugins.yaml"
 
-    connection {
-      type        = "ssh"
-      user        = "ec2-user"
-      private_key = file("${path.module}/id_ed25519_aws_ec2")
-      host        = self.public_ip
-    }
+  #   connection {
+  #     type        = "ssh"
+  #     user        = "ec2-user"
+  #     private_key = file("${path.module}/id_ed25519_aws_ec2")
+  #     host        = self.public_ip
+  #   }
 
-  }
+  # }
 
   # TODO: student supplies user_data to install app + CW agent + configure log shipping
   # added by Lonnie Hodges

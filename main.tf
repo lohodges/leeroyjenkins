@@ -241,7 +241,7 @@ resource "aws_instance" "echobase_ec201" {
   }
 
   tags = {
-    Name = "${local.name_prefix}-ec201"
+    Name = "jenkins-${local.name_prefix}-ec201"
   }
 }
 

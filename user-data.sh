@@ -26,7 +26,7 @@ curl -fLs -o /tmp/jenkins-plugin-manager.jar \
 
 # curl -fLs -o /tmp/plugins.yaml \
 #   https://raw.githubusercontent.com/aaron-dm-mcdonald/new-jenkins-s3-test/refs/heads/main/plugins.yaml
-curl -fLs -o /tmp/plugins.yaml \ 
+curl -fLs -o /tmp/plugins.yaml \
   https://raw.githubusercontent.com/lohodges/leeroyjenkins/master/plugins.yaml
 
 sudo -u jenkins java -jar /tmp/jenkins-plugin-manager.jar \

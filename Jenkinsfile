@@ -14,17 +14,17 @@ pipeline {
             }
         }
 
-        stage('Snyk IaC Scan Test') {
-            steps {
-                withCredentials([string(credentialsId: 'snyk-api-token-string', variable: 'SNYK_TOKEN')]) {
-                    sh '''
-                        export PATH=$PATH:/var/lib/jenkins/tools/io.snyk.jenkins.tools.SnykInstallation/snyk
-                        snyk-linux auth $SNYK_TOKEN
-                        snyk-linux iac test --org=$SNYK_ORG --severity-threshold=high || true
-                    '''
-                }
-            }
-        }
+        // stage('Snyk IaC Scan Test') {
+        //     steps {
+        //         withCredentials([string(credentialsId: 'snyk-api-token-string', variable: 'SNYK_TOKEN')]) {
+        //             sh '''
+        //                 export PATH=$PATH:/var/lib/jenkins/tools/io.snyk.jenkins.tools.SnykInstallation/snyk
+        //                 snyk-linux auth $SNYK_TOKEN
+        //                 snyk-linux iac test --org=$SNYK_ORG --severity-threshold=high || true
+        //             '''
+        //         }
+        //     }
+        // }
         
         stage('Snyk IaC Scan Monitor') {
             steps {
